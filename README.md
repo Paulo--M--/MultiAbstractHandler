@@ -1,4 +1,4 @@
-#Multi Abstract Handler
+#Multiple Abstract Handler
 
 This is an example file created at the kind request of Matthijs.
 
