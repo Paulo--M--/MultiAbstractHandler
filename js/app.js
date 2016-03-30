@@ -15,6 +15,9 @@ jQuery(function () {
                 this.abstracts.push({
                     AbstTitle: ''
                 });
+            },
+            remove: function (abstract) {
+                this.abstracts.$remove(abstract);
             }
         }
     });

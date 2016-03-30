@@ -16,6 +16,7 @@
             <ul class="uk-list uk-list-line">
                 <li v-for="abstract in abstracts" class="uk-form">
                     <input type="text" v-model="abstract.AbstTitle"/>
+                    <a @click="remove(abstract)"><i class="uk-icon-close"></i></a>
                 </li>
             </ul>
 
