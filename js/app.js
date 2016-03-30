@@ -13,6 +13,7 @@ jQuery(function () {
         methods: {
             add: function () {
                 this.abstracts.push({
+                    AbstID: 0,
                     AbstTitle: ''
                 });
             },
