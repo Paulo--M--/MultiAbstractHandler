@@ -21,6 +21,12 @@ jQuery(function () {
                 UIkit.modal.confirm('Are you sure?', function () {
                     vm.abstracts.$remove(abstract);
                 });
+            },
+            save: function () {
+                var vm = this;
+                jQuery.post('echo.php', {abstracts: this.abstracts}, function (res) {
+                    vm.$set('abstracts', res.abstracts);
+                }, 'json');
             }
         }
     });
