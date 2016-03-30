@@ -17,7 +17,10 @@ jQuery(function () {
                 });
             },
             remove: function (abstract) {
-                this.abstracts.$remove(abstract);
+                var vm = this;
+                UIkit.modal.confirm('Are you sure?', function () {
+                    vm.abstracts.$remove(abstract);
+                });
             }
         }
     });
