@@ -10,11 +10,19 @@
 
     <div id="abstract-handler" class="uk-block">
         <div class="uk-container uk-container-center uk-margin">
+
             <h1 class="uk-article-title">Abstract Handler</h1>
 
+            <ul class="uk-list uk-list-line">
+                <li v-for="abstract in abstracts" class="uk-form">
+                    <input type="text" v-model="abstract.AbstTitle"/>
+                </li>
+            </ul>
 
+            <button class="uk-button uk-button-primary" @click="add">Add</button>
 
         </div>
+
         <pre>{{$data|json}}</pre>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
