@@ -7,6 +7,7 @@ jQuery(function () {
         el: '#abstract-handler',
 
         data: {
+            editor: {},
             editModal: {},
             editAbstract: false,
             abstracts: []
@@ -15,6 +16,7 @@ jQuery(function () {
         events: {
             'hook:ready': function () {
                 this.editModal = UIkit.modal(this.$els.modalEdit, {bgClose: false});
+                this.editor = CKEDITOR.replace(this.$els.ckeDesc);
             }
         },
 
@@ -28,12 +30,16 @@ jQuery(function () {
                 this.abstracts.push(abstract);
                 this.edit(abstract);
             },
-            cancel: function () {
+            cancel: function (abstract) {
+                if (abstract.AbstID === 0) {
+                    this.abstracts.$remove(abstract);
+                }
                 this.editAbstract = false;
                 this.editModal.hide();
             },
             edit: function (abstract) {
                 this.editAbstract = abstract;
+                this.editor.setData(abstract.AbstDesc);
                 this.editModal.show();
             },
             remove: function (abstract) {
@@ -44,6 +50,7 @@ jQuery(function () {
             },
             save: function () {
                 var vm = this;
+                this.editAbstract.AbstDesc = this.editor.getData();
                 jQuery.post('echo.php', {abstracts: this.abstracts}, function (res) {
                     vm.$set('abstracts', res.abstracts);
                     vm.editAbstract = false;
