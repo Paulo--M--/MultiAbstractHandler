@@ -39,6 +39,7 @@ jQuery(function () {
             },
             edit: function (abstract) {
                 this.editAbstract = abstract;
+                this.editor.setData(abstract.AbstDesc);
                 this.editModal.show();
             },
             remove: function (abstract) {
