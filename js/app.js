@@ -10,7 +10,7 @@ jQuery(function () {
             editor: {},
             editModal: {},
             editAbstract: false,
-            abstracts: []
+            abstracts: UIkit.$.merge([], window.$abstracts)
         },
 
         events: {
