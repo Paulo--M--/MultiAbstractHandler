@@ -25,32 +25,33 @@
             <button class="uk-button" @click="add">Add</button>
 
 
+            <div v-el:modal-edit class="uk-modal uk-form">
+                <div class="uk-modal-dialog">
+                    <div class="uk-modal-header">
+                        <h3>Edit abstract {{editAbstract.AbstID}}</h3>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">Title</label>
+                        <div class="uk-form-controls">
+                            <input type="text" v-model="editAbstract.AbstTitle"/><br/>
+                        </div>
+                    </div>
 
-            <div class="uk-margin uk-panel uk-panel-box uk-form uk-from-horizontal">
-                <div class="uk-form-row">
-                    <label class="uk-form-label">Title</label>
-                    <div class="uk-form-controls">
-                        <input type="text" v-model="editAbstract.AbstTitle"/><br/>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label">Descripton</label>
+                        <div class="uk-form-controls">
+                            <textarea v-model="editAbstract.AbstDesc" cols="30" rows="5"></textarea><br/>
+                        </div>
+                    </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button class="uk-button uk-margin-small-right" @click="cancel">Cancel</button>
+                        <button class="uk-button uk-button-primary" @click="save">Save</button>
                     </div>
                 </div>
-
-                <div class="uk-form-row">
-                    <label class="uk-form-label">Descripton</label>
-                    <div class="uk-form-controls">
-                        <textarea v-model="editAbstract.AbstDesc" cols="30" rows="5"></textarea><br/>
-                    </div>
-                </div>
-
-                <div class="uk-margin uk-text-right">
-                    <button class="uk-button uk-margin-small-right" @click="editAbstract = false">Cancel</button>
-                    <button class="uk-button uk-button-primary" @click="save">Save</button>
-                </div>
-
             </div>
-
         </div>
 
-        <pre>{{$data|json}}</pre>
+        <pre>{{$data.abstracts|json}}</pre>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.0/js/uikit.min.js"></script>
