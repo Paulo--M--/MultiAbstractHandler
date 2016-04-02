@@ -28,7 +28,10 @@ jQuery(function () {
                 this.abstracts.push(abstract);
                 this.edit(abstract);
             },
-            cancel: function () {
+            cancel: function (abstract) {
+                if (abstract.AbstID === 0) {
+                    this.abstracts.$remove(abstract);
+                }
                 this.editAbstract = false;
                 this.editModal.hide();
             },
