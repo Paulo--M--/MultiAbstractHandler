@@ -7,6 +7,7 @@ jQuery(function () {
         el: '#abstract-handler',
 
         data: {
+            editor: {},
             editModal: {},
             editAbstract: false,
             abstracts: []
@@ -15,6 +16,7 @@ jQuery(function () {
         events: {
             'hook:ready': function () {
                 this.editModal = UIkit.modal(this.$els.modalEdit, {bgClose: false});
+                this.editor = CKEDITOR.replace(this.$els.ckeDesc);
             }
         },
 
@@ -47,6 +49,7 @@ jQuery(function () {
             },
             save: function () {
                 var vm = this;
+                this.editAbstract.AbstDesc = this.editor.getData();
                 jQuery.post('echo.php', {abstracts: this.abstracts}, function (res) {
                     vm.$set('abstracts', res.abstracts);
                     vm.editAbstract = false;
